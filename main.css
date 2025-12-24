@@ -1,0 +1,320 @@
+/* =========================================
+   Global Styles & Reset
+   ========================================= */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&display=swap');
+
+:root {
+    --glass-bg: rgba(255, 255, 255, 0.15);
+    --glass-border: rgba(255, 255, 255, 0.2);
+    --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+    --input-bg: rgba(0, 0, 0, 0.2);
+    --accent: #00f2fe;
+    --accent-gradient: linear-gradient(45deg, #4facfe 0%, #00f2fe 100%);
+    --text-main: #ffffff;
+    --text-muted: rgba(255, 255, 255, 0.7);
+}
+
+body {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.Main-section {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    min-height: 100vh;
+    overflow: hidden;
+    color: var(--text-main);
+}
+
+/* =========================================
+      Background Effects
+      ========================================= */
+.background-circles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.6;
+}
+
+.circle-1 {
+    width: 400px;
+    height: 400px;
+    background: #4facfe;
+    top: -100px;
+    left: -100px;
+}
+
+.circle-2 {
+    width: 300px;
+    height: 300px;
+    background: #f093fb;
+    bottom: -50px;
+    right: -50px;
+}
+
+/* =========================================
+      Layout Structure
+      ========================================= */
+/* =========================================
+      Layout Structure
+      ========================================= */
+.app-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    margin: 0 auto;
+}
+
+/* Left Column (Controls) - Fixed Width */
+.app-container>.glass-panel {
+    flex-shrink: 0;
+}
+
+
+
+/* =========================================
+      Glass Components (Panels)
+      ========================================= */
+.glass-panel {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: var(--glass-shadow);
+}
+
+/* =========================================
+      Control Panel (Left Column)
+      ========================================= */
+header {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    font-weight: 600;
+    margin: 0;
+    font-size: 1.8rem;
+    background: var(--accent-gradient);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 0.5rem;
+}
+
+p.subtitle {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+}
+
+label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 400;
+    margin-left: 0.25rem;
+}
+
+input,
+select {
+    background: var(--input-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    padding: 0.75rem 1rem;
+    color: var(--text-main);
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.2s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+input:focus,
+select:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 4px rgba(79, 172, 254, 0.1);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Unit Toggle Switch */
+.unit-toggle {
+    display: flex;
+    background: var(--input-bg);
+    border-radius: 12px;
+    padding: 4px;
+    border: 1px solid var(--glass-border);
+}
+
+.unit-option {
+    flex: 1;
+    text-align: center;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    color: var(--text-muted);
+}
+
+.unit-option.active {
+    background: var(--accent-gradient);
+    color: #fff;
+    font-weight: 600;
+}
+
+/* Result & Copy Area */
+.result-area {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 16px;
+    padding: 1.5rem;
+    position: relative;
+    margin-top: 1rem;
+    border: 1px solid var(--glass-border);
+}
+
+.code-display {
+    font-family: 'Monaco', 'Consolas', monospace;
+    color: #a5ea9b;
+    word-break: break-all;
+    line-height: 1.5;
+    font-size: 0.85rem;
+    padding-right: 0;
+    white-space: pre-wrap;
+}
+
+.copy-btn {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    color: white;
+    padding: 0.75rem;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+    text-align: center;
+}
+
+.copy-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.copy-btn.copied {
+    background: #4facfe;
+    border-color: #4facfe;
+}
+
+/* =========================================
+      Preview Section (Right Column)
+      ========================================= */
+.previews-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.preview-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.preview-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.preview-title {
+    font-weight: 600;
+    color: var(--text-main);
+    font-size: 1.1rem;
+}
+
+.preview-desc {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.dims-badge {
+    font-size: 0.8rem;
+    font-family: monospace;
+    background: var(--input-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid var(--glass-border);
+}
+
+/* Resizable Iframe Container */
+.resize-track {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    /* Grid background pattern */
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 20px 20px;
+    overflow: auto;
+    /* Allow scrolling if container is smaller than content */
+    padding: 48px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: flex-start;
+}
+
+.resizable-box {
+    background: white;
+    height: 100%;
+    /* Make it resizable using CSS native property */
+    resize: both;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    /* Visible border indicator for resizing */
+    border-right: 4px solid var(--accent);
+    border-bottom: 4px solid var(--accent);
+    min-width: 200px;
+    min-height: 200px;
+    max-width: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+    /* Ensure events work inside */
+    pointer-events: auto;
+}

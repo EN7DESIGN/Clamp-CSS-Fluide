@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur CSS Fluide Design</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description"
+        content="Calculez facilement vos typographies et espacements fluides avec notre générateur css clamp() moderne. Visualisation en temps réel et interface intuitive.">
+    <meta name="keywords" content="css clamp, fluid typography, responsive design, calculateur css, web design tools">
+    <meta name="author" content="Sept Ngiene | EN7DESIGN">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://Clampfluidedesign.com/">
+    <meta property="og:title" content="Générateur CSS Fluide Design">
+    <meta property="og:description"
+        content="Créez des sites responsive parfaits avec ce générateur de valeurs fluides.">
+    <meta property="og:image" content="og-image.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Générateur CSS Fluide Design">
+    <meta property="twitter:description" content="L'outil indispensable pour le design responsive moderne.">
+    <meta property="twitter:image" content="og-image.png">
+
+    <!-- Link to external CSS -->
+    <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+
+    <!-- Decorative Background -->
+    <div class="background-circles">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+
+    <!-- Main Container -->
+    <main class="Main-section">
+        <div class="app-container">
+
+            <!-- LEFT COLUMN: CONTROLS -->
+            <div class="glass-panel">
+                <header>
+                    <h1>Générateur CSS Fluide Design</h1>
+                    <p class="subtitle">Calculateur clamp() & Design System</p>
+                </header>
+
+                <!-- Screen Configuration -->
+                <div class="input-group">
+                    <label>Largeur Écran Min (px)</label>
+                    <input type="number" id="minWidth" value="360">
+                </div>
+                <div class="input-group">
+                    <label>Largeur Écran Max (px)</label>
+                    <input type="number" id="maxWidth" value="1440">
+                </div>
+
+                <!-- Unit Selection -->
+                <div class="input-group">
+                    <label>Unités</label>
+                    <div class="unit-toggle">
+                        <div class="unit-option" onclick="setUnit('px')" id="btn-px">px</div>
+                        <div class="unit-option active" onclick="setUnit('rem')" id="btn-rem">rem</div>
+                    </div>
+                </div>
+
+                <!-- Value Configuration -->
+                <div class="input-group">
+                    <label>Valeur Minimum <span id="label-unit-min">(rem)</span></label>
+                    <input type="number" id="minVal" value="1" step="0.1">
+                </div>
+                <div class="input-group">
+                    <label>Valeur Maximum <span id="label-unit-max">(rem)</span></label>
+                    <input type="number" id="maxVal" value="2" step="0.1">
+                </div>
+
+                <!-- Property Selector (Margin Removed) -->
+                <div class="input-group">
+                    <label>Propriété CSS</label>
+                    <select id="property">
+                        <option value="font-size">font-size (Texte)</option>
+                        <option value="width">width (Carré)</option>
+                        <option value="height">height (Carré)</option>
+                        <option value="padding">padding (Box)</option>
+                        <option value="gap">gap (Grille)</option>
+                    </select>
+                </div>
+
+                <!-- Result Output -->
+                <div class="result-area">
+                    <div class="code-display" id="output">/* Génération... */</div>
+                    <button class="copy-btn" id="copyBtn" onclick="copyCode()">Copier le code</button>
+                </div>
+            </div>
+            <!-- --------------------- -->
+
+            <!-- RIGHT COLUMN: PREVIEWS -->
+            <div class="previews-column">
+                <div class="glass-panel preview-section">
+                    <div class="preview-header">
+                        <div>
+                            <div class="preview-title">Aperçu</div>
+                            <div class="preview-desc">Redimensionnez pour tester la fluidité.</div>
+                        </div>
+                        <div class="dims-badge" id="info-max">Largeur: --px</div>
+                    </div>
+                    <div class="resize-track">
+                        <div class="resizable-box" id="box-max" style="width: 800px;">
+                            <iframe id="iframe-max"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Link to external JS -->
+    <script src="script.js"></script>
+</body>
+
+</html>
